@@ -1,0 +1,9 @@
+def ist_primzahl(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+        else:
+            return True
+        
+        
+print(ist_primzahl(9))
