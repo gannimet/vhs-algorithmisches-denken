@@ -1,24 +1,15 @@
-def run_length_encode(text):
-    if len(text) == 0:
-        return ""
+def group_words(words):
+    grouped_words = {}
     
-    last_char = text[0]
-    current_length = 1
-    result_str = ""
-    
-    for i in range(1, len(text)):
-        current_char = text[i]
+    for word in words:
+        start_letter = word[0].lower()
         
-        if current_char == last_char:
-            current_length += 1
+        if start_letter in grouped_words:
+            grouped_words[start_letter] += [word]
         else:
-            result_str += f"{last_char}{current_length}"
-            current_length = 1
-            last_char = current_char
+            grouped_words[start_letter] = [word]
             
-    result_str += f"{last_char}{current_length}"
-    
-    return result_str
+    return grouped_words
 
 
-print(run_length_encode("aabccc"))
+print(group_words(["Apfel", "Banane", "Ananas", "Birne", "Mango", "Pfirsich"]))
