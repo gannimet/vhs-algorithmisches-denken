@@ -1,4 +1,5 @@
 from grid_visualizer import GridVisualizer
+from collections import deque
 
 class Maze():
     def __init__(self, grid):
@@ -52,11 +53,33 @@ class Maze():
                 return backtracked_path
             
         return None
+    
+    def bfs(self, cell):
+        if self.is_cell_blocked(cell):
+            return None
+
+        visited = {cell}
+        queue = deque([[cell]])
+
+        while queue:
+            path = queue.popleft()
+
+            if self.is_solving_path(path):
+                return path
+
+            cell = path[-1]
+            
+            for neighbor_cell in self.list_eligible_neighbors(cell, visited):
+                visited.add(neighbor_cell)
+                queue.append([*path, neighbor_cell])
+
+        return None
 
 
 def my_pathfinding(grid):
     maze = Maze(grid)
-    path_through_maze = maze.backtrack(cell=(0, 0))
+    # path_through_maze = maze.backtrack(cell=(0, 0))
+    path_through_maze = maze.bfs(cell=(0, 0))
     
     return path_through_maze
 
