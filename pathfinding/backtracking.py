@@ -7,13 +7,13 @@ class Maze():
         self.cols = len(grid[0])
         self.target_cell = (self.rows - 1, self.cols - 1)
         
-    def get_cell_value(self, cell):
+    def is_cell_blocked(self, cell):
         """
         True = Wall, False = Free
         """
         row = cell[0]
         col = cell[1]
-        is_in_bounds = row >= 0 and col >= 0 and row < self.rows and col < self.cols
+        is_in_bounds = 0 <= row < self.rows and 0 <= col < self.cols
         
         if not is_in_bounds:
             return True
@@ -28,12 +28,12 @@ class Maze():
             (cell[0] - 1, cell[1])
         ]
         
-        return [c for c in candidates if not self.get_cell_value(c) and not c in path]
+        return [c for c in candidates if not self.is_cell_blocked(c) and not c in path]
     
     def is_solving_path(self, path):
         return not path is None and len(path) > 0 and path[-1] == self.target_cell
         
-    def backtrack(self, cell=(0, 0), path=None):
+    def backtrack(self, cell, path=None):
         if path is None:
             path = []
         
@@ -53,9 +53,10 @@ class Maze():
             
         return None
 
+
 def my_pathfinding(grid):
     maze = Maze(grid)
-    path_through_maze = maze.backtrack()
+    path_through_maze = maze.backtrack(cell=(0, 0))
     
     return path_through_maze
 
