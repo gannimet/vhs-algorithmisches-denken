@@ -78,8 +78,8 @@ class Maze():
 
 def my_pathfinding(grid):
     maze = Maze(grid)
-    # path_through_maze = maze.backtrack(cell=(0, 0))
-    path_through_maze = maze.bfs(cell=(0, 0))
+    path_through_maze = maze.backtrack(cell=(0, 0))
+    # path_through_maze = maze.bfs(cell=(0, 0))
     
     return path_through_maze
 
