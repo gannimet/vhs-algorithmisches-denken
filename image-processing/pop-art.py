@@ -1,10 +1,10 @@
 from PIL import Image
 
-filename = "petersdom.jpeg"
+filename = "mcdonald.jpeg"
 source_image = Image.open(f"image-processing/img/{filename}")
 destination_image = Image.new("RGB", source_image.size)
 (image_width, image_height) = source_image.size
-STEP_SIZE = 50
+STEP_SIZE = 80
 
 for y in range(image_height):
     for x in range(image_width):
