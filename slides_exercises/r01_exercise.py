@@ -1,16 +1,9 @@
 def are_signs_alternating(numbers):
-    if len(numbers) <= 1:
-        return True
-    
-    is_current_element_positive = numbers[0] >= 0
-
     for i in range(1, len(numbers)):
-        is_new_element_positive = numbers[i] >= 0
-        
-        if is_current_element_positive == is_new_element_positive:
+        pred_bt0 = numbers[i-1] >= 0
+        curr_bt0 = numbers[i] >= 0
+        if pred_bt0 == curr_bt0:
             return False
-        
-        is_current_element_positive = is_new_element_positive
         
     return True
 
