@@ -6,7 +6,7 @@ def selection_sort(items):
     for i in range(len(result_list)):
         min_idx = i
 
-        for j in range(i, len(result_list)):
+        for j in range(i+1, len(result_list)):
             if result_list[j] < result_list[min_idx]:
                 min_idx = j
 
