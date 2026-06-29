@@ -8,5 +8,5 @@ for y in range(image_width):
         color = (x % 256, y % 256, 128)
 
         destination_image.putpixel((x, y), color)
-        
+
 destination_image.show()
