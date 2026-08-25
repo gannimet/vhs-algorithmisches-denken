@@ -1,9 +1,9 @@
 def are_signs_alternating(numbers):
     for i in range(1, len(numbers)):
-        pred_bt0 = numbers[i-1] >= 0
-        curr_bt0 = numbers[i] >= 0
+        pred_positive = numbers[i-1] >= 0
+        curr_positive = numbers[i] >= 0
         
-        if pred_bt0 == curr_bt0:
+        if pred_positive == curr_positive:
             return False
         
     return True
