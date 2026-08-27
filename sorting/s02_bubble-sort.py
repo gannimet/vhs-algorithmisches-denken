@@ -12,7 +12,8 @@ def bubble_sort(items):
                 swapped = True
 
         if not swapped:
-            break
+            #break
+            return result_list
 
     return result_list
 
