@@ -6,7 +6,7 @@ def quicksort(items):
     if list_length <= 1:
         return items
 
-    pivot_index = list_length // 2
+    pivot_index = 0
     pivot_element = items[pivot_index]
     smaller_than_pivot = []
     bigger_than_pivot = []

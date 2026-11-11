@@ -13,5 +13,5 @@ for y in range(8):
                 (255, 255, 255),
                 (left, top, left + square_width, top + square_width),
             )
-        
+
 destination_image.show()
